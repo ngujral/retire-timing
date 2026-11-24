@@ -31,6 +31,10 @@ node --test tests/*.test.mjs     # Node 22, nothing to install
 
 ## Test site
 
+Works on Cloudflare Workers too: `wrangler.jsonc` serves this folder as static assets (deploy command `npx wrangler deploy`,
+no build command); the address is then `https://retire-timing.<your-account>.workers.dev`.
+
+
 Every push to GitHub gets its own preview address on Cloudflare Pages. The `main` branch is at
 `https://retire-timing.pages.dev` (the name depends on the Cloudflare project name) — use it as the test site before
 adding the real domain. Pushes to any other branch (e.g. `test`) get `https://test.retire-timing.pages.dev`.
