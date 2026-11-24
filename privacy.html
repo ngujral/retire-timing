@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy | Retire Timing</title>
+<meta name="description" content="Retire Timing has no accounts and no server. Everything you enter stays in your browser on your device.">
+<link rel="canonical" href="https://retiretiming.ca/privacy">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#eef2ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1714" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#eef2ef,#0f1714);--panel:light-dark(#fff,#17211d);--ink:light-dark(#0f241d,#e8efeb);--mute:light-dark(#53625c,#9aaba3);--rule:light-dark(#cfd8d3,#2c3a34);--acc:light-dark(#0e6b52,#34a37f);--onacc:light-dark(#fff,#06120d)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Figtree",system-ui,sans-serif}
+a{color:inherit}a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.top{display:flex;align-items:center;padding:max(14px,env(safe-area-inset-top)) max(5vw,16px) 14px;max-width:1240px;margin:0 auto}
+.brand{font-weight:800;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--acc);position:relative}
+.brand i::before,.brand i::after{content:"";position:absolute;left:12.5px;width:3px;border-radius:2px;background:var(--onacc);transform-origin:50% 100%}
+.brand i::before{top:5px;height:9px}.brand i::after{top:7px;height:7px;transform:rotate(120deg)}
+main{max-width:760px;margin:0 auto;padding:8px max(5vw,16px) 48px}
+h1{font-size:clamp(30px,5vw,42px);line-height:1.1;margin:0 0 14px}
+h2{font-size:21px;margin:28px 0 6px}
+.box{background:var(--panel);padding:18px 20px;border-left:4px solid var(--acc)}
+.note{font-size:14px;color:var(--mute)}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="index.html"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="var(--acc)"/><path d="M14 14V6.5M14 14l5.2 3" stroke="var(--onacc)" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="var(--onacc)"/></svg>Retire Timing</a></header>
+<main>
+<h1>Privacy</h1>
+<p class="box"><b>Retire Timing has no accounts and no server.</b> Everything you enter, and every result, stays in your browser on your device. Nothing is sent to us or anyone else.</p>
+
+<h2>What is stored, and where</h2>
+<p>Your entries (birth year and month, pension amounts, balances and choices) are saved in your browser’s local storage so they’re there when you come back. They never leave the device. Downloads you make (the CSV table or a PDF) are created on your device.</p>
+
+<h2>Deleting your data</h2>
+<p>Tap <b>Start over (clear my data)</b> at the bottom of the calculator, or clear this site’s data in your browser settings. Uninstalling the app also removes it.</p>
+
+<h2>What we don’t do</h2>
+<p>No sign-up, no analytics, no advertising, no tracking cookies, and no sharing or selling of data — there is no data on our side to share.</p>
+
+<h2>Third parties</h2>
+<p>The page loads its font from Google Fonts, which receives a normal web request (your IP address and browser) when the font is downloaded. No calculator inputs are included in that request. The site is hosted on Cloudflare Pages, which handles the request for the page itself.</p>
+
+<h2>Contact</h2>
+<p>Questions: <a href="mailto:support@retiretiming.ca">support@retiretiming.ca</a></p>
+<p class="note">Last updated November 23, 2026.</p>
+</main>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})</script>
+</body>
+</html>

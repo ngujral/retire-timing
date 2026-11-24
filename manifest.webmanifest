@@ -1,0 +1,19 @@
+{
+  "name": "Retire Timing — CPP and OAS Calculator",
+  "short_name": "Retire Timing",
+  "description": "Compare starting CPP at 60, 65 or 70 and OAS at 65 or 70, after tax and OAS clawback, with an RRSP meltdown.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef2ef",
+  "theme_color": "#0e6b52",
+  "lang": "en-CA",
+  "categories": ["finance"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

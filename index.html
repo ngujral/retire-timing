@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CPP and OAS Calculator: Start at 60, 65 or 70? | Retire Timing</title>
+<meta name="description" content="Compare starting CPP at 60, 65 or 70 and OAS at 65 or 70 — after tax and OAS clawback, and how long your RRSP, TFSA and savings last. Free, for Ontario; private.">
+<link rel="canonical" href="https://retiretiming.ca/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CPP and OAS Calculator Canada — Start at 60, 65 or 70?">
+<meta property="og:description" content="Compare CPP and OAS start ages after tax and OAS clawback, with your RRSP, TFSA and savings and the waiting years. Free and private.">
+<meta property="og:url" content="https://retiretiming.ca/">
+<meta property="og:image" content="https://retiretiming.ca/og.png">
+<meta property="og:site_name" content="Retire Timing">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#eef2ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1714" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Retire Timing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Retire Timing — CPP and OAS Calculator","alternateName":"Retire Timing","url":"https://retiretiming.ca/","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"inLanguage":"en-CA","areaServed":"CA"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Can I start CPP or OAS at 71?","acceptedAnswer":{"@type":"Answer","text":"No. CPP can start from 60 to 70 and OAS from 65 to 70. Increases stop at 70, so waiting longer adds nothing. Age 71 matters for a different reason: your RRSP must become a RRIF by December 31 of the year you turn 71."}},
+{"@type":"Question","name":"How much bigger is CPP if I wait until 70?","acceptedAnswer":{"@type":"Answer","text":"CPP rises 0.7% for each month after 65, so 42% more at 70. Starting at 60 cuts it by 0.6% a month, or 36%. The change is permanent, and the pension is indexed to inflation either way."}},
+{"@type":"Question","name":"How much bigger is OAS if I wait until 70?","acceptedAnswer":{"@type":"Answer","text":"OAS rises 0.6% for each month after 65, so 36% more at 70. It can't start before 65. From age 75 it rises a further 10%."}},
+{"@type":"Question","name":"What is the OAS clawback threshold for 2026?","acceptedAnswer":{"@type":"Answer","text":"$95,323 of net income. OAS is repaid at 15 cents for every dollar above it, collected by reducing OAS the following July to June. It is calculated per person, not on a couple's combined income."}},
+{"@type":"Question","name":"What is an RRSP meltdown?","acceptedAnswer":{"@type":"Answer","text":"Withdrawing part of your RRSP in lower-income years before CPP, OAS and forced RRIF withdrawals start, so it's taxed at lower rates now instead of higher rates later. It also shrinks the RRIF minimums that can push income over the OAS clawback threshold."}},
+{"@type":"Question","name":"What is the CPP breakeven age?","acceptedAnswer":{"@type":"Answer","text":"The age at which the total received from starting later catches up with starting earlier. For a maximum pension, starting at 70 instead of 65 usually catches up in the early 80s before tax. The after-tax age can differ, which is why this calculator shows both."}}]}]}</script>
+<style>
+/* Retire Timing: cool sage ground, deep green-black ink, evergreen accent, red only for warnings; Figtree */
+:root{color-scheme:light dark;--bg:light-dark(#eef2ef,#0f1714);--panel:light-dark(#fff,#17211d);--ink:light-dark(#0f241d,#e8efeb);--mute:light-dark(#53625c,#9aaba3);--rule:light-dark(#cfd8d3,#2c3a34);--acc:light-dark(#0e6b52,#34a37f);--onacc:light-dark(#fff,#06120d);--brick:light-dark(#b42318,#f0705f);--track:light-dark(#e3eae6,#22302a);
+  --s1:light-dark(#2a78d6,#3987e5);--s2:light-dark(#eb6834,#d95926);--s3:light-dark(#1baf7a,#199e70);--s4:light-dark(#eda100,#c98500);--s5:light-dark(#e87ba4,#d55181)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Figtree",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:max(14px,env(safe-area-inset-top)) max(5vw,16px) 14px;max-width:1240px;margin:0 auto}
+.brand{font-weight:800;font-size:20px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--acc);position:relative}
+.brand i::before,.brand i::after{content:"";position:absolute;left:12.5px;width:3px;border-radius:2px;background:var(--onacc);transform-origin:50% 100%}
+.brand i::before{top:5px;height:9px}.brand i::after{top:7px;height:7px;transform:rotate(120deg)}
+.top small{color:var(--mute);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;background:var(--acc);color:var(--onacc);font-weight:700;text-decoration:none;border-radius:12px;white-space:nowrap}
+main{max-width:1240px;margin:0 auto;padding:8px max(5vw,16px) max(40px,env(safe-area-inset-bottom))}
+.crumb{font-size:14px;color:var(--mute);margin:0 0 8px}.crumb a{color:var(--mute)}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.08;margin:0 0 12px;font-weight:800;text-wrap:balance;max-width:22ch}
+.lead{font-size:19px;margin:0 0 8px;max-width:68ch}
+.priv{font-size:15px;color:var(--mute);margin:0 0 24px;max-width:70ch}
+h2{font-size:24px;line-height:1.2;margin:0 0 10px}
+h3{font-size:18px;margin:18px 0 6px}
+.calc{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+@media(min-width:1080px){.calc{grid-template-columns:400px minmax(0,1fr)}.inputs{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;scrollbar-width:thin}}
+.sec{background:var(--panel);padding:18px 18px 14px;margin:0 0 14px}
+.sec>h2{font-size:19px;margin:0 0 10px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.sec>h2 small{font-weight:500;font-size:13px;color:var(--mute)}
+.f{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:4px 10px;align-items:center;margin:0 0 10px}
+.f label{font-size:15px;font-weight:600}
+.f .h{grid-column:1/-1;font-size:13px;color:var(--mute);margin-top:-2px}
+.f .err{grid-column:1/-1;font-size:13px;color:var(--brick);font-weight:700}
+.autobox{display:flex;align-items:center;justify-content:flex-end;min-height:44px;padding:8px 10px;background:var(--track);font-weight:800;font-variant-numeric:tabular-nums}
+.pick .amt{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+@media(max-width:1300px){.f.wide{grid-template-columns:1fr}}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+input,select{font:inherit;font-size:16px;padding:8px 10px;min-height:44px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:0;width:100%}
+input[type=number]{text-align:right;font-variant-numeric:tabular-nums}
+input[aria-invalid=true],select[aria-invalid=true]{border:2px solid var(--brick)}
+input[type=range]{padding:0;border:0;accent-color:var(--acc)}
+.chk{display:flex;gap:10px;align-items:center;font-size:15px;min-height:44px;cursor:pointer}
+.chk input{width:22px;height:22px;min-height:0;accent-color:var(--acc);flex:none}
+button{font:inherit;font-weight:700;min-height:44px;padding:0 16px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;border-radius:10px}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--rule);font-weight:500}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.seg{display:inline-flex;border:1px solid var(--rule);background:var(--panel)}
+.seg button{border:0;background:transparent;color:var(--mute);font-weight:700;min-height:40px;padding:0 14px}
+.seg button[aria-pressed=true]{background:var(--acc);color:var(--onacc)}
+details.more>summary{cursor:pointer;font-weight:700;min-height:40px;display:flex;align-items:center;color:var(--mute);font-size:15px}
+.person+.person{border-top:2px solid var(--ink);margin-top:14px;padding-top:14px}
+.person h3{margin:0 0 8px}
+.scs{display:grid;gap:10px}
+.sc{border:1px solid var(--rule);padding:12px}
+.sc .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 6px}
+.sc .hd b{font-size:17px;display:flex;align-items:center;gap:8px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex:none}
+.pick{display:grid;grid-template-columns:3.2em minmax(0,1fr) minmax(0,1fr);gap:6px;align-items:center;margin:4px 0}
+.pick span{font-size:14px;font-weight:600}
+.hint{font-size:13px;color:var(--mute);margin:6px 0 0}
+.warnbox{border-left:4px solid var(--brick);background:var(--panel);padding:10px 14px;font-size:14px;margin:10px 0}
+.bar-top{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;margin:0 0 14px}
+.summary{background:var(--panel);border-left:4px solid var(--acc);padding:16px 18px;margin:0 0 14px;font-size:17px}
+.summary p{margin:0 0 8px;max-width:75ch}.summary p:last-child{margin:0}
+.warns{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:6px}
+.warns li{background:var(--panel);padding:10px 14px 10px 38px;font-size:14px;position:relative}
+.warns li::before{content:"!";position:absolute;left:12px;top:10px;width:18px;height:18px;border-radius:50%;background:var(--brick);color:var(--panel);font-weight:800;font-size:12px;display:grid;place-items:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:var(--rule);border-top:3px solid var(--acc);margin:0 0 14px}
+.card{background:var(--panel);padding:16px 18px}
+.card .nm{font-weight:800;font-size:17px;display:flex;gap:8px;align-items:center}
+.card .sub{font-size:14px;color:var(--mute);margin:0 0 10px}
+.card .big{font-size:clamp(26px,3vw,32px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.card .lbl{font-size:13px;color:var(--mute);margin:0 0 10px}
+.card dl{display:grid;grid-template-columns:1fr auto;gap:3px 10px;margin:0;font-size:14px}
+.card dt{color:var(--mute)}.card dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;background:var(--acc);color:var(--onacc);margin:0 0 8px}
+.panel{background:var(--panel);padding:18px;margin:0 0 14px}
+.panel>h2{font-size:21px}
+.note{font-size:13px;color:var(--mute);max-width:80ch;margin:10px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+th{text-align:left;font-size:12px;color:var(--mute);font-weight:500;border-bottom:2px solid var(--ink);padding:6px 8px;vertical-align:bottom}
+td{border-bottom:1px solid var(--rule);padding:6px 8px}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.cl td{font-weight:700}tr.cl td:first-child::after{content:" ▲";color:var(--brick)}
+.scroll{overflow:auto;max-height:520px}
+.scroll thead th{position:sticky;top:0;background:var(--panel)}
+.chart{position:relative}
+.chart svg{display:block;width:100%;overflow:visible}
+.chart text{font:12px "Figtree",system-ui,sans-serif;fill:var(--mute)}
+.chart .lab{fill:var(--ink);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;margin:0 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:4px;border-radius:2px;display:inline-block}
+.legend i.sq{height:12px;width:12px;border-radius:3px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 10px;min-width:150px;z-index:3;display:none;line-height:1.4}
+.tip b{display:block}
+.tip span{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.cmp{width:100%}.cmp td:first-child{min-width:9.5em}.cmp .note{display:block;margin:0}.cmp td:nth-child(n+2),.cmp th:nth-child(n+2){text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.verdict{font-size:17px;font-weight:700;margin:12px 0 0}
+.gapflag{color:var(--brick);font-weight:700}
+.disc{border:2px solid var(--ink);padding:14px 16px;font-size:14px;margin:14px 0}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.faq{margin-top:36px;border-top:2px solid var(--ink);padding-top:8px;max-width:860px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;font-weight:700;padding:12px 0;min-height:44px}
+.faq details p{margin:0 0 14px;max-width:70ch}
+footer{max-width:1240px;margin:0 auto;padding:20px max(5vw,16px) max(30px,env(safe-area-inset-bottom));border-top:1px solid var(--rule);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:var(--mute)}
+.blocked{background:var(--panel);padding:24px;border-left:4px solid var(--brick);font-size:17px}
+/* intro sentence */
+.intro{max-width:820px;margin:8px auto 40px}
+.intro h1{max-width:none}
+.sentence{background:var(--panel);border-radius:20px;padding:clamp(20px,4vw,40px);margin-top:18px}
+.sentence p{font-size:clamp(20px,2.6vw,27px);line-height:2;margin:0 0 6px}
+.sentence p.hint,.sentence p.err{font-size:14px;line-height:1.5}
+.sentence .chk{font-size:16px;margin:4px 0}
+.mad{border:0;border-bottom:2px solid var(--rule);background:transparent;font:inherit;font-weight:700;color:var(--ink);padding:0 4px;min-height:0;border-radius:0;text-align:center;-moz-appearance:textfield}
+.mad::placeholder{color:var(--mute);font-weight:500;opacity:.7}
+.mad::-webkit-outer-spin-button,.mad::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.mad:focus{outline:none;border-bottom-color:var(--acc)}
+select.mad{text-align:left;padding-right:4px;width:auto}
+.pill{border-radius:999px;background:var(--ink);border-color:var(--ink);color:var(--bg);padding:0 28px;min-height:52px;font-size:17px;margin:14px 0 6px}
+p.err,.err{color:var(--brick);font-weight:700}
+/* main form pieces */
+.sec{border-radius:16px}
+.sec input,.sec select{border-radius:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;align-items:end}
+.fld{display:flex;flex-direction:column;gap:4px;margin:0 0 10px}
+.fld>label{font-weight:700;font-size:15px}
+.fld>label small{font-weight:500;color:var(--mute);font-size:13px}
+.fld .h{font-size:13px;color:var(--mute)}
+.fld .amt{font-size:14px;font-weight:700;color:var(--acc)}
+.sec h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:18px 0 8px}
+button.link{background:none;border:0;color:var(--acc);font-weight:700;padding:0;min-height:36px;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+button.link.add{font-size:17px;text-decoration:none}
+.sec>h2 .link{font-size:14px}
+.basics{margin:0 0 12px;color:var(--mute);font-size:15px}
+.chips{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:8px}
+.chips .empty{color:var(--mute);font-size:15px;padding:6px 0}
+.chip{display:flex;align-items:center;border:1px solid var(--rule);border-radius:999px;background:var(--panel)}
+.chipmain{flex:1;display:flex;justify-content:space-between;gap:10px;background:none;border:0;color:var(--ink);font-weight:500;padding:0 8px 0 20px;min-height:52px;text-align:left;border-radius:999px}
+.chipmain b{font-weight:800}
+.chipmain span{color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip .x{background:var(--track);border:0;color:var(--ink);border-radius:50%;width:36px;min-height:36px;height:36px;padding:0;margin:0 8px;font-size:18px;line-height:1}
+.chipedit{padding:12px 6px 2px}
+.addform{border:1px solid var(--rule);border-radius:14px;padding:12px;margin-top:6px}
+.startrow .who{font-weight:800;margin:6px 0 4px}
+details.adv>summary{cursor:pointer;list-style:none;display:flex;flex-direction:column}
+details.adv>summary::-webkit-details-marker{display:none}
+details.adv>summary h2{font-size:19px;margin:0;display:flex;justify-content:space-between}
+details.adv>summary h2::after{content:"+";font-weight:800}
+details.adv[open]>summary h2::after{content:"−"}
+details.adv>summary .hint{margin:4px 0 0}
+@media(max-width:600px){.row2{grid-template-columns:1fr}.row2.keep{grid-template-columns:1fr 1fr}.sentence p{line-height:1.9}.chipmain{flex-direction:column;align-items:flex-start;justify-content:center;gap:0;padding:8px 8px 8px 20px}}
+@media(max-width:600px){.f{grid-template-columns:minmax(0,1fr) 130px}.sec{padding:14px}.panel{padding:14px}table{font-size:13px}.top .btn{padding:0 14px}}
+@media(forced-colors:active){.dot,.legend i{forced-color-adjust:none}}
+@media print{.top,.inputs,.toolbar,.faq,footer,.bar-top .seg,.noprint{display:none!important}body{background:#fff;color:#000}.calc{display:block}.panel,.card,.summary{break-inside:avoid}.scroll{max-height:none;overflow:visible}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="index.html" aria-label="Retire Timing home"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="var(--acc)"/><path d="M14 14V6.5M14 14l5.2 3" stroke="var(--onacc)" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="14" r="2" fill="var(--onacc)"/></svg>Retire Timing</a><small>Ontario · 2026 figures</small></header>
+<main>
+<section id="intro" class="intro" aria-labelledby="hIntro" hidden>
+  <h1 id="hIntro">When should you start CPP and OAS?</h1>
+  <p class="lead">Answer a few questions. We’ll compare starting at 65, at 70 and your own choice — after tax, the OAS clawback and your savings.</p>
+  <form class="sentence" id="introForm" onsubmit="return false">
+    <p>My name is <input class="mad" style="width:9ch" data-b="people.0.name" placeholder="first name" autocomplete="given-name" aria-label="Your first name">.</p>
+    <p>I am <input class="mad" style="width:3.2ch" type="number" min="40" max="99" inputmode="numeric" data-b="people.0.age" placeholder="55" aria-label="Your age"> years old
+      and <select class="mad" data-b="people.0.status" aria-label="Work status"><option value="work">working</option><option value="retired">retired</option></select>.</p>
+    <p data-retwrap="0">I plan to retire at <input class="mad" style="width:3.2ch" type="number" min="40" max="80" inputmode="numeric" data-b="people.0.retAt" placeholder="65" aria-label="Age you plan to retire">.</p>
+    <p><span data-earnlbl="0">I earn</span> $<input class="mad" style="width:7.5ch" type="number" min="0" step="1000" inputmode="numeric" data-b="people.0.earn" placeholder="85,000" aria-label="Your yearly earnings before tax"> a year<span data-earnlbl2="0"></span>.</p>
+    <p>I live in <select class="mad" data-b="province" aria-label="Province"><option value="ON">Ontario</option><option value="QC">Quebec</option><option disabled>other (soon)</option></select>.</p>
+    <label class="chk"><input type="checkbox" data-b="couple"> I have a spouse or partner</label>
+    <div id="introP">
+      <p>My spouse or partner is <input class="mad" style="width:3.2ch" type="number" min="40" max="99" inputmode="numeric" data-b="people.1.age" placeholder="55" aria-label="Partner's age"> years old,
+        <select class="mad" data-b="people.1.status" aria-label="Partner's work status"><option value="work">working</option><option value="retired">retired</option></select><span data-retwrap="1"> (retiring at <input class="mad" style="width:3.2ch" type="number" min="40" max="80" inputmode="numeric" data-b="people.1.retAt" placeholder="65" aria-label="Age your partner plans to retire">)</span>,
+        and <span data-earnlbl="1">earns</span> $<input class="mad" style="width:7.5ch" type="number" min="0" step="1000" inputmode="numeric" data-b="people.1.earn" placeholder="60,000" aria-label="Partner's yearly earnings before tax"> a year.</p>
+    </div>
+    <p class="err" id="introErr"></p>
+    <button type="submit" class="pill" id="start">Let’s get started</button>
+    <p class="hint">Earnings are before tax. While working, that’s your pay until you retire; it’s also used to estimate CPP. Nothing you type leaves this device.</p>
+  </form>
+</section>
+
+<div id="main" hidden>
+<h1 id="hello">Let’s get to know you</h1>
+<p class="lead">Results update as you type. We compare your choice of start ages with starting everything at 65 and at 70.</p>
+<div class="calc">
+<form class="inputs" id="inputs" onsubmit="return false" aria-label="Your details">
+  <section class="sec" aria-labelledby="hBasics">
+    <h2 id="hBasics">About you <button type="button" class="link" id="editBasics">Edit basics</button></h2>
+    <p class="basics" id="basicsLine"></p>
+    <div class="row2 keep">
+      <div class="fld"><label for="sex0">Sex <small>for life expectancy</small></label><select id="sex0" data-b="people.0.sex"><option value="M">Male</option><option value="F">Female</option></select></div>
+      <div class="fld" data-only-couple><label for="sex1"><span data-pname>Partner</span>’s sex</label><select id="sex1" data-b="people.1.sex"><option value="M">Male</option><option value="F">Female</option></select></div>
+    </div>
+    <p class="hint" id="lifeNote"></p>
+  </section>
+
+  <section class="sec" aria-labelledby="hSav">
+    <h2 id="hSav">Tell us about your savings</h2>
+    <ul class="chips" id="chips"></ul>
+    <button type="button" class="link add" id="addAcct">＋ Add an account</button>
+    <div class="addform" id="addForm" hidden>
+      <div class="row2">
+        <div class="fld"><label for="naType">Account</label><select id="naType"><option value="rrsp">RRSP / RRIF</option><option value="tfsa">TFSA</option><option value="sav">Other savings (non-registered)</option></select></div>
+        <div class="fld" data-only-couple><label for="naOwner">Belongs to</label><select id="naOwner"></select></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label for="naBal">Balance ($)</label><input id="naBal" type="number" min="0" step="1000" inputmode="numeric" placeholder="100,000"></div>
+        <div class="fld"><label for="naRet">Return after fees (%)</label><input id="naRet" type="number" min="0" max="10" step="0.1" inputmode="decimal" value="5"></div>
+      </div>
+      <div class="toolbar"><button type="button" id="naSave">Add account</button><button type="button" class="ghost" id="naCancel">Cancel</button></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="hInc">
+    <h2 id="hInc">Income you need in retirement</h2>
+    <div class="row2">
+      <div class="fld"><label for="income">Per year, before tax ($)</label><input id="income" type="number" min="0" step="1000" inputmode="numeric" data-b="income"><span class="err" data-e="income"></span></div>
+      <div class="fld"><label for="inflation">Inflation (%)</label><input id="inflation" type="number" min="0" max="6" step="0.1" inputmode="decimal" data-b="inflation"></div>
+    </div>
+    <p class="hint">In today’s dollars<span data-only-couple-inline>, for both of you</span>. Starts the year the first of you retires<span data-only-couple-inline> (any pay the other still earns counts toward it)</span>. Paid by CPP, OAS and any pension first; the rest comes from your savings. Until then, your pay covers your spending and your savings keep growing.</p>
+    <div class="fld"><label for="order">How to draw on your savings</label><select id="order" data-b="order">
+      <option value="smooth">Even out taxes: steady RRSP withdrawals, the rest from savings and TFSA</option>
+      <option value="rrsp">RRSP first, then other savings, then TFSA</option></select></div>
+  </section>
+
+  <section class="sec" aria-labelledby="hStart">
+    <h2 id="hStart">Your choice: when to start CPP and OAS</h2>
+    <div id="starts"></div>
+    <p class="hint">CPP 60–70, OAS 65–70. Monthly amounts in today’s dollars. Results also show starting both at 65 and at 70.</p>
+  </section>
+
+  <details class="sec adv" id="adv">
+    <summary><h2>Advanced settings</h2><span class="hint">Government benefits, TFSA room, workplace pension, other income</span></summary>
+    <div id="advPeople"></div>
+    <h3>Defined benefit pension</h3>
+    <div class="row2">
+      <div class="fld"><label for="dbAmt">Pension per year ($)</label><input id="dbAmt" type="number" min="0" step="1000" inputmode="numeric" data-b="db.amt" placeholder="0"></div>
+      <div class="fld"><label for="dbFrom">Starting at age</label><input id="dbFrom" type="number" min="50" max="75" inputmode="numeric" data-b="db.from"></div>
+    </div>
+    <div class="row2">
+      <div class="fld" data-only-couple><label for="dbOwner">Pension belongs to</label><select id="dbOwner" data-b="db.owner" data-n></select></div>
+      <label class="chk"><input type="checkbox" data-b="db.indexed"> Indexed to inflation</label>
+    </div>
+    <h3>Plan</h3>
+    <label class="chk" data-only-couple><input type="checkbox" data-b="split"> Split eligible pension income (RRIF from 65, workplace pension)</label>
+    <label class="chk"><input type="checkbox" data-b="planOwn"> Choose my own plan-to age instead of life expectancy</label>
+    <div class="row2" id="planOwnRow">
+      <div class="fld"><label for="pt0">Plan to age (<span data-pname0>you</span>)</label><input id="pt0" type="number" min="75" max="110" inputmode="numeric" data-b="people.0.planTo"></div>
+      <div class="fld" data-only-couple><label for="pt1">Plan to age (<span data-pname>Partner</span>)</label><input id="pt1" type="number" min="75" max="110" inputmode="numeric" data-b="people.1.planTo"></div>
+    </div>
+    <span class="err" data-e="planTo"></span>
+  </details>
+  <div class="toolbar noprint"><button type="button" class="ghost" id="reset">Start over (clear my data)</button></div>
+</form>
+
+<section id="results" aria-live="polite" aria-label="Results">
+  <div class="bar-top"><div class="seg" role="group" aria-label="Show amounts in"><button type="button" data-d="today">Today’s dollars</button><button type="button" data-d="future">Future dollars</button></div>
+    <div class="toolbar" style="margin:0"><button type="button" class="ghost" id="print">Print / save PDF</button><button type="button" class="ghost" id="csv">Download table (CSV)</button></div></div>
+  <div id="out"></div>
+</section>
+</div>
+</div>
+
+<section class="faq" id="faq"><h2>Common questions</h2>
+<details><summary>Can I start CPP or OAS at 71?</summary><p>No. CPP can start from 60 to 70 and OAS from 65 to 70. Increases stop at 70, so waiting longer adds nothing. Age 71 matters for a different reason: your RRSP must become a RRIF by December 31 of the year you turn 71, and forced withdrawals start the next year.</p></details>
+<details><summary>How much bigger is CPP if I wait until 70?</summary><p>CPP rises 0.7% for each month after 65, so 42% more at 70. Starting at 60 cuts it by 0.6% a month, or 36%. The change is permanent, and the pension is indexed to inflation either way. The 2026 maximum at 65 is $1,507.65 a month, about $965 at 60 and about $2,141 at 70.</p></details>
+<details><summary>How much bigger is OAS if I wait until 70?</summary><p>OAS rises 0.6% for each month after 65, so 36% more at 70 — about $1,037 a month instead of $762.50 (October–December 2026). It can’t start before 65. From age 75 it rises a further 10%.</p></details>
+<details><summary>What is the OAS clawback threshold for 2026?</summary><p>$95,323 of net income. OAS is repaid at 15 cents for every dollar above it, collected by reducing OAS the following July to June. It’s calculated per person, not on a couple’s combined income.</p></details>
+<details><summary>What is an RRSP meltdown?</summary><p>Withdrawing part of your RRSP in lower-income years — usually between retiring and starting CPP and OAS — so it’s taxed at lower rates now instead of higher rates later. A smaller RRSP means smaller forced RRIF withdrawals, which can keep income under the clawback threshold. It isn’t always worth it: if your later income stays low, it can mean paying tax sooner for nothing. Here, withdrawals start right away to pay the income you need, so you can compare a later CPP and OAS start paid for from your RRSP against starting earlier.</p></details>
+<details><summary>What is the CPP breakeven age?</summary><p>The age at which the total received from starting later catches up with starting earlier. For a maximum pension, starting at 70 instead of 65 usually catches up in the early 80s before tax. The after-tax age can be different, which is why both are shown.</p></details>
+<details><summary>Where do I find my CPP at 65?</summary><p>In My Service Canada Account, under your CPP Statement of Contributions and retirement estimate. That estimate assumes you keep contributing until 65 — if you stop working earlier, your real amount may be lower.</p></details>
+</section>
+
+</main>
+<footer><span>© 2026 Retire Timing · <a href="privacy.html">Privacy</a> · Free, no sign-up, nothing leaves your device</span><span>General information for Canadians, not financial, tax or retirement advice.</span></footer>
+
+<script src="js/params-2026.js"></script>
+<script src="js/engine.js"></script>
+<script type="module">
+const P = window.RT_PARAMS;
+const { compute, cppMonthly, cppEstimate, oasMonthly, CEILINGS, lifePlan } = window.RT_ENGINE;
+
+const BRAND = 'Retire Timing', SITE = 'retiretiming.ca';
+
+const KEY = 'rtm-v1';
+const FIRST = Math.max(P.YEAR + 1, new Date().getFullYear());
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const COLORS = ['var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)', 'var(--s5)'];
+let LET = ['Your choice', 'At 65', 'At 70'];
+
+const NOW = new Date().getFullYear();
+const person = (o = {}) => ({ name: '', age: '', status: 'work', earn: '', sex: 'M', bm: 1, cppYears: '', cppOwn: '', cppStarted: false, cppStartedAmt: '',
+  oasStarted: false, oasStartedAmt: '', years: 40, tfsaRoom: '', retAt: 65, oth: '', rrifAge: 71, planTo: '', ...o });
+const DEF = () => ({ v: 3, step: 'intro', couple: false, split: false, province: 'ON', income: 70000, inflation: 2.1, order: 'smooth', dollars: 'today',
+  people: [person(), person({ sex: 'F' })], accounts: [], start: [{ cpp: 65, oas: 65 }, { cpp: 65, oas: 65 }],
+  db: { amt: '', from: 65, owner: 0, indexed: true }, planOwn: false, sel: 0 });
+
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch { S = null; }
+// bring older saved data (before the account list) up to date
+if (S && S.v !== 3 && Array.isArray(S.people)) {
+  const old = S, n = DEF(), accts = [];
+  n.people = old.people.slice(0, 2).map((p, i) => person({ name: i === 0 && /^you$/i.test(p.name || '') ? '' : (i === 1 && /^partner$/i.test(p.name || '') ? '' : p.name || ''),
+    age: p.by ? NOW - p.by : '', earn: p.cppEarn ?? '', cppYears: p.cppYears ?? '', bm: p.bm || 1, years: p.years ?? 40, rrifAge: p.rrifAge || 71,
+    cppOwn: p.cppOwn && p.cpp65 ? Math.round(p.cpp65 * 12) : '', cppStarted: !!p.cppStarted, cppStartedAmt: p.cppStartedAmt ?? '', oasStarted: !!p.oasStarted, oasStartedAmt: p.oasStartedAmt ?? '',
+    retAt: +p.emp > 0 ? p.empTo ?? 65 : 65, oth: p.oth ?? '', sex: i === 1 ? 'F' : 'M' }));
+  old.people.slice(0, 2).forEach((p, i) => {
+    if (+p.rrsp) accts.push({ id: 'a' + accts.length, type: 'rrsp', owner: i, bal: +p.rrsp, ret: p.rrspRet ?? 4 });
+    if (+p.tfsa) accts.push({ id: 'a' + accts.length, type: 'tfsa', owner: i, bal: +p.tfsa, ret: p.tfsaRet ?? 4 });
+    if (+p.sav) accts.push({ id: 'a' + accts.length, type: 'sav', owner: i, bal: +p.sav, ret: p.savRet ?? 4 });
+  });
+  Object.assign(n, { couple: !!old.couple, split: !!old.split, province: old.province || 'ON', income: old.income ?? 70000, inflation: old.inflation ?? 2.1,
+    order: old.order || 'smooth', accounts: accts, step: n.people[0].age ? 'main' : 'intro' });
+  if (old.scen && old.scen[0]) n.start = old.scen[0].slice(0, 2).map(s => ({ cpp: s.cy || 65, oas: s.oy || 65 }));
+  S = n;
+}
+if (!S || S.v !== 3) S = DEF();
+S.people = [0, 1].map(i => { const p = S.people[i] || {};
+  if (p.retAt == null && +p.emp > 0) { p.retAt = p.empTo ?? 65; if (p.status === 'work' && !(+p.earn > 0)) p.earn = p.emp; }
+  delete p.emp; delete p.empTo; return person(p); });
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+
+const getP = p => p.split('.').reduce((o, k) => o?.[k], S);
+const setP = (p, v) => { const ks = p.split('.'); const last = ks.pop(); ks.reduce((o, k) => o[k], S)[last] = v; };
+const num = v => (v === '' || v == null || isNaN(+v)) ? 0 : +v;
+const nameOf = i => (S.people[i].name || '').trim() || (i === 0 ? 'You' : 'Partner');
+const possOf = i => i === 0 && !(S.people[0].name || '').trim() ? 'your' : esc(nameOf(i)) + '’s';
+const NP = () => S.couple ? 2 : 1;
+const TYPES = { rrsp: 'RRSP / RRIF', tfsa: 'TFSA', sav: 'Other savings' };
+
+// ---------- derived values ----------
+const working = p => p.status !== 'retired';
+const retAtOf = p => working(p) ? Math.max(num(p.age), num(p.retAt) || 65) : num(p.age);       // retiring before today's age = retiring now
+const yearsAuto = p => Math.min(P.cpp.bestYears, Math.max(0, Math.min(65, Math.max(retAtOf(p), num(p.age))) - 18));
+const cppYearsOf = p => p.cppYears === '' ? yearsAuto(p) : num(p.cppYears);
+const cppEstOf = p => cppEstimate(P, cppYearsOf(p), num(p.earn));          // monthly
+const cpp65Of = p => p.cppOwn !== '' && p.cppOwn != null ? num(p.cppOwn) / 12 : cppEstOf(p);
+const birthYearOf = p => NOW - num(p.age);
+function planAges() {
+  const ps = S.people.slice(0, NP());
+  if (S.planOwn) return ps.map(p => num(p.planTo) || 95);
+  return lifePlan(P, ps.map(p => ({ age: num(p.age) + (FIRST - NOW), sex: p.sex }))).ages;
+}
+// scenarios: your choice, then both at 65 and at 70 (skipping duplicates); a start that has passed moves to now
+let SC = [];
+function buildScenarios() {
+  const np = NP();
+  const earliest = (p, lo) => Math.max(lo, (FIRST - birthYearOf(p)) * 12 - num(p.bm) + 1);
+  const mk = (f) => ({ people: S.people.slice(0, np).map((p, i) => ({ cpp: Math.min(840, Math.max(earliest(p, 720), f(i).cpp * 12)), oas: Math.min(840, Math.max(earliest(p, 780), f(i).oas * 12)) })) });
+  const list = [{ name: 'Your choice', sc: mk(i => S.start[i]) }, { name: np > 1 ? 'Both at 65' : 'At 65', sc: mk(() => ({ cpp: 65, oas: 65 })) }, { name: np > 1 ? 'Both at 70' : 'At 70', sc: mk(() => ({ cpp: 70, oas: 70 })) }];
+  const seen = new Map(); SC = [];
+  for (const x of list) { const key = JSON.stringify(x.sc); if (seen.has(key)) { seen.get(key).alias = x.name; continue; } seen.set(key, x); SC.push(x); }
+  SC.forEach(x => { if (x.alias) x.name = `${x.name} (= ${x.alias.toLowerCase()})`; });
+  LET = SC.map(x => x.name);
+}
+
+// ---------- inputs ----------
+function yearOpts(sel, lo, hi) { let h = ''; for (let y = hi; y >= lo; y--) h += `<option${y == sel ? ' selected' : ''}>${y}</option>`; return h; }
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const m$ = v => '$' + Math.round(v).toLocaleString('en-CA');
+
+function chipsHTML() {
+  if (!S.accounts.length) return '<li class="empty">No accounts yet. Add your RRSP, TFSA and other savings.</li>';
+  return S.accounts.map(a => `<li class="chiprow${a.open ? ' open' : ''}">
+    <div class="chip"><button type="button" class="chipmain" data-edit="${a.id}" aria-expanded="${!!a.open}"><b>${TYPES[a.type]}${S.couple ? ' · ' + esc(nameOf(a.owner)) : ''}</b><span>${m$(num(a.bal))} · ${num(a.ret)}%</span></button>
+      <button type="button" class="x" data-del="${a.id}" aria-label="Remove ${TYPES[a.type]}">×</button></div>
+    ${a.open ? `<div class="chipedit"><div class="row2">
+      <div class="fld"><label>Balance ($)</label><input type="number" min="0" step="1000" inputmode="numeric" data-acct="${a.id}.bal" value="${a.bal}"></div>
+      <div class="fld"><label>Return after fees (%)</label><input type="number" min="0" max="10" step="0.1" inputmode="decimal" data-acct="${a.id}.ret" value="${a.ret}"></div></div>
+      ${S.couple ? `<div class="fld"><label>Belongs to</label><select data-acct="${a.id}.owner">${[0, 1].map(i => `<option value="${i}"${a.owner == i ? ' selected' : ''}>${esc(nameOf(i))}</option>`).join('')}</select></div>` : ''}
+      <button type="button" class="link" data-edit="${a.id}">Done</button></div>` : ''}</li>`).join('');
+}
+function startsHTML() {
+  return S.people.slice(0, NP()).map((p, i) => `<div class="startrow">${NP() > 1 ? `<div class="who">${esc(nameOf(i))}</div>` : ''}
+    <div class="row2 keep">
+      <div class="fld"><label>Start CPP at</label>${p.cppStarted ? '<div class="autobox">already receiving</div>' : `<select data-b="start.${i}.cpp" data-n>${yearOpts(S.start[i].cpp, 60, 70)}</select><span class="amt" data-amt="${i}.cpp"></span>`}</div>
+      <div class="fld"><label>Start OAS at</label>${p.oasStarted ? '<div class="autobox">already receiving</div>' : `<select data-b="start.${i}.oas" data-n>${yearOpts(S.start[i].oas, 65, 70)}</select><span class="amt" data-amt="${i}.oas"></span>`}</div>
+    </div></div>`).join('');
+}
+function advPersonHTML(i) {
+  const p = S.people[i], b = `people.${i}`;
+  return `<h3>Government benefits${NP() > 1 ? ' — ' + esc(nameOf(i)) : ''}</h3>
+  <div class="row2">
+    <div class="fld"><label for="cy${i}">Years paying CPP</label><input id="cy${i}" type="number" min="0" max="50" inputmode="numeric" data-b="${b}.cppYears" value="${p.cppYears}" data-ph="years${i}"></div>
+    <div class="fld"><label for="cpp${i}">CPP at 65 <small>per year</small></label><input id="cpp${i}" type="number" min="0" step="100" inputmode="numeric" data-b="${b}.cppOwn" value="${p.cppOwn}" data-ph="cpp${i}"></div>
+  </div>
+  <p class="hint" data-cpph="${i}"></p>
+  <div class="row2">
+    <div class="fld"><label for="yrs${i}">Years in Canada after 18</label><input id="yrs${i}" type="number" min="0" max="82" inputmode="numeric" data-b="${b}.years" value="${p.years}"><span class="err" data-e="p${i}.yearsCanada"></span></div>
+    <div class="fld"><label>OAS at 65 <small>per year</small></label><output class="autobox" data-oasout="${i}"></output></div>
+  </div>
+  <label class="chk"><input type="checkbox" data-b="${b}.cppStarted"${p.cppStarted ? ' checked' : ''}> Already receiving CPP</label>
+  ${p.cppStarted ? `<div class="fld"><label>CPP now ($/month)</label><input type="number" min="0" step="0.01" inputmode="decimal" data-b="${b}.cppStartedAmt" value="${p.cppStartedAmt}"></div>` : ''}
+  <label class="chk"><input type="checkbox" data-b="${b}.oasStarted"${p.oasStarted ? ' checked' : ''}> Already receiving OAS</label>
+  ${p.oasStarted ? `<div class="fld"><label>OAS now ($/month)</label><input type="number" min="0" step="0.01" inputmode="decimal" data-b="${b}.oasStartedAmt" value="${p.oasStartedAmt}"></div>` : ''}
+  <div class="row2">
+    <div class="fld"><label for="bm${i}">Birth month</label><select id="bm${i}" data-b="${b}.bm" data-n>${MON.map((m, k) => `<option value="${k + 1}"${k + 1 == p.bm ? ' selected' : ''}>${m}</option>`).join('')}</select></div>
+    <div class="fld"><label for="rrif${i}">RRSP becomes a RRIF at</label><select id="rrif${i}" data-b="${b}.rrifAge" data-n>${[65, 66, 67, 68, 69, 70, 71].map(a => `<option${a == p.rrifAge ? ' selected' : ''}>${a}</option>`).join('')}</select></div>
+  </div>
+  <div class="fld"><label for="room${i}">TFSA contribution room ($)</label><input id="room${i}" type="number" min="0" step="500" inputmode="numeric" data-b="${b}.tfsaRoom" value="${p.tfsaRoom}" placeholder="0">
+    <span class="h">For ${P.YEAR}, from CRA My Account. Blank: no unused room today; new room is added each year from ${P.YEAR + 1}. Extra income goes to the TFSA first.</span></div>
+  ${working(p) ? `<div class="row2">
+    <div class="fld"><label for="ret${i}">Retire at age</label><input id="ret${i}" type="number" min="40" max="80" inputmode="numeric" data-b="${b}.retAt" value="${p.retAt}" placeholder="65"></div>
+    <div class="fld"><label for="earn${i}">Pay until then, before tax ($/year)</label><input id="earn${i}" type="number" min="0" step="1000" inputmode="numeric" data-b="${b}.earn" value="${p.earn}" placeholder="0"></div>
+  </div>` : ''}
+  <div class="fld"><label for="oth${i}">Other taxable income per year ($)</label><input id="oth${i}" type="number" min="0" step="500" inputmode="numeric" data-b="${b}.oth" value="${p.oth}" placeholder="0"><span class="h">Rental income, for example. Taxed as ordinary income, every year.</span></div>`;
+}
+function drawInputs() {
+  $('#chips').innerHTML = chipsHTML();
+  $('#starts').innerHTML = startsHTML();
+  $('#advPeople').innerHTML = [0, 1].slice(0, NP()).map(advPersonHTML).join('');
+  const owners = [0, 1].map(i => `<option value="${i}">${esc(nameOf(i))}</option>`).join('');
+  $('#naOwner').innerHTML = owners; $('#dbOwner').innerHTML = owners.replace(`value="${S.db.owner}"`, `value="${S.db.owner}" selected`);
+  for (const el of $$('[data-b]')) {
+    if (el.closest('#advPeople') || el.closest('#starts')) continue;
+    const v = getP(el.dataset.b);
+    if (el.type === 'checkbox') el.checked = !!v; else el.value = v ?? '';
+  }
+  syncVis();
+}
+function syncVis() {
+  const intro = S.step !== 'main';
+  $('#intro').hidden = !intro; $('#main').hidden = intro;
+  $$('[data-only-couple]').forEach(e => e.hidden = !S.couple);
+  $$('[data-only-couple-inline]').forEach(e => e.hidden = !S.couple);
+  $('#introP').hidden = !S.couple;
+  [0, 1].forEach(i => { const w = S.people[i].status !== 'retired';
+    $$(`[data-earnlbl="${i}"]`).forEach(e => e.textContent = i === 0 ? (w ? 'I earn' : 'When working, I earned about') : (w ? 'earns' : 'earned about'));
+    $$(`[data-earnlbl2="${i}"]`).forEach(e => e.textContent = '');
+    $$(`[data-retwrap="${i}"]`).forEach(e => e.hidden = !w); });
+  $$('[data-pname]').forEach(e => e.textContent = nameOf(1));
+  $('#hello').textContent = (S.people[0].name || '').trim() ? `Let’s get to know ${S.people[0].name.trim()}` : 'Let’s get to know you';
+  const st = p => p.status === 'retired' ? 'retired' : 'working, retiring at ' + retAtOf(p);
+  $('#basicsLine').textContent = S.people.slice(0, NP()).map((p, i) => `${nameOf(i)}, ${num(p.age)}, ${st(p)}${num(p.earn) ? ', ' + m$(num(p.earn)) + ' a year' : ''}`).join(' · ') + ` · ${S.province === 'QC' ? 'Quebec' : 'Ontario'}`;
+  $('#planOwnRow').hidden = !S.planOwn;
+  // plan length
+  const ages = planAges();
+  if (S.planOwn) $('#lifeNote').textContent = `Using your own plan-to age${NP() > 1 ? 's' : ''}: ${ages.join(' and ')}.`;
+  else if (NP() === 1) $('#lifeNote').textContent = `Your plan runs to age ${ages[0]}. FP Canada’s 2026 planning guidelines give a ${S.people[0].sex === 'F' ? 'woman' : 'man'} your age a 25% chance of living at least that long.`;
+  else $('#lifeNote').textContent = `The plan runs until ${S.people[0].name ? esc(nameOf(0)) + ' is' : 'you’re'} ${ages[0]} and ${esc(nameOf(1))} is ${ages[1]} — a 25% chance that at least one of you is alive then (FP Canada 2026 planning guidelines).`;
+  // benefits: estimates, placeholders, amounts beside the start ages
+  for (let i = 0; i < NP(); i++) {
+    const p = S.people[i]; const c65 = cpp65Of(p), y = num(p.years);
+    const yi = $(`[data-ph="years${i}"]`); if (yi) yi.placeholder = yearsAuto(p);
+    const ci = $(`[data-ph="cpp${i}"]`); if (ci) ci.placeholder = Math.round(cppEstOf(p) * 12).toLocaleString('en-CA');
+    const h = $(`[data-cpph="${i}"]`); if (h) h.textContent = (p.cppOwn !== '' ? 'Your own figure. ' : `Estimate: ${cppYearsOf(p)} of ${P.cpp.bestYears} years × ${Math.round(Math.min(1, num(p.earn) / P.cpp.ympe) * 100)}% of maximum earnings. `) + `Replace it with your Service Canada estimate × 12 (My Service Canada Account). ${P.YEAR} maximum: ${m$(P.cpp.max65 * 12)} a year.`;
+    const o = $(`[data-oasout="${i}"]`); if (o) o.textContent = y < 10 ? 'none (under 10 years)' : m$(oasMonthly(P, y, 780) * 12);
+    const ca = $(`[data-amt="${i}.cpp"]`); if (ca) ca.textContent = `${m$(cppMonthly(P, c65, S.start[i].cpp * 12))} / month`;
+    const oa = $(`[data-amt="${i}.oas"]`); if (oa) oa.textContent = `${m$(y < 10 ? 0 : oasMonthly(P, y, S.start[i].oas * 12))} / month`;
+  }
+  $$('[data-d]').forEach(b => b.setAttribute('aria-pressed', String(S.dollars === b.dataset.d)));
+}
+
+function onInput(e) {
+  const el = e.target;
+  if (el.dataset.acct) {
+    const [id, f] = el.dataset.acct.split('.'); const a = S.accounts.find(x => x.id === id); if (!a) return;
+    a[f] = f === 'owner' ? +el.value : el.value; save(); schedule();
+    if (f === 'owner') { drawInputs(); }
+    else { const li = el.closest('.chiprow'); const sp = li && li.querySelector('.chipmain span'); if (sp) sp.textContent = `${m$(num(a.bal))} · ${num(a.ret)}%`; }
+    return;
+  }
+  const b = el.dataset.b; if (!b) return;
+  let v = el.type === 'checkbox' ? el.checked : el.value;
+  if (el.dataset.n) v = +v;
+  setP(b, v);
+  if (/(couple|Started|status|planOwn)$/.test(b) || /^people\.\d\.name$/.test(b)) { if (S.step === 'main') drawInputs(); else syncVis(); }
+  if (el.closest('#introForm')) $('#introErr').textContent = '';
+  syncVis(); save(); if (S.step === 'main') schedule();
+}
+document.addEventListener('input', onInput);
+document.addEventListener('change', e => { if (e.target.tagName === 'SELECT' || e.target.type === 'checkbox') onInput(e); });
+
+$('#start').addEventListener('click', () => {
+  const bad = [0, 1].slice(0, NP()).find(i => !(num(S.people[i].age) >= 40 && num(S.people[i].age) <= 99));
+  if (bad !== undefined) { $('#introErr').textContent = `Enter ${bad === 0 ? 'your' : 'your spouse or partner’s'} age (40 to 99).`; return; }
+  const badR = [0, 1].slice(0, NP()).find(i => working(S.people[i]) && S.people[i].retAt !== '' && !(num(S.people[i].retAt) >= 40 && num(S.people[i].retAt) <= 80));
+  if (badR !== undefined) { $('#introErr').textContent = `Enter ${badR === 0 ? 'your' : 'your spouse or partner’s'} retirement age (40 to 80).`; return; }
+  $('#introErr').textContent = ''; S.step = 'main'; save(); drawInputs(); update(); scrollTo(0, 0);
+});
+$('#editBasics').addEventListener('click', () => { S.step = 'intro'; save(); syncVis(); scrollTo(0, 0); });
+$('#addAcct').addEventListener('click', () => { $('#addForm').hidden = false; $('#naBal').focus(); });
+$('#naCancel').addEventListener('click', () => { $('#addForm').hidden = true; });
+$('#naSave').addEventListener('click', () => {
+  const bal = num($('#naBal').value); if (!(bal > 0)) { $('#naBal').focus(); return; }
+  S.accounts.push({ id: 'a' + Date.now().toString(36), type: $('#naType').value, owner: S.couple ? +$('#naOwner').value : 0, bal, ret: $('#naRet').value === '' ? 5 : num($('#naRet').value) });
+  $('#naBal').value = ''; $('#addForm').hidden = true; save(); drawInputs(); update();
+});
+$('#chips').addEventListener('click', e => {
+  const ed = e.target.closest('[data-edit]'), del = e.target.closest('[data-del]');
+  if (ed) { const a = S.accounts.find(x => x.id === ed.dataset.edit); a.open = !a.open; drawInputs(); return; }
+  if (del) { S.accounts = S.accounts.filter(x => x.id !== del.dataset.del); save(); drawInputs(); update(); }
+});
+$('#reset').addEventListener('click', () => { if (!confirmReset()) return; try { localStorage.removeItem(KEY); } catch {} S = DEF(); drawInputs(); syncVis(); scrollTo(0, 0); });
+function confirmReset() { const b = $('#reset'); if (b.dataset.armed) return true; b.dataset.armed = 1; b.textContent = 'Tap again to clear everything'; setTimeout(() => { delete b.dataset.armed; b.textContent = 'Start over (clear my data)'; }, 4000); return false; }
+$$('[data-d]').forEach(b => b.addEventListener('click', () => { S.dollars = b.dataset.d; save(); syncVis(); update(); }));
+$('#print').addEventListener('click', () => window.print());
+let timer; const schedule = () => { clearTimeout(timer); timer = setTimeout(update, 120); };
+
+// ---------- engine input ----------
+function toInput() {
+  buildScenarios();
+  const np = NP(), ages = planAges();
+  const acct = (i, type) => S.accounts.filter(a => a.type === type && (np > 1 ? +a.owner === i : true));
+  const bal = (i, t) => acct(i, t).reduce((x, a) => x + num(a.bal), 0);
+  const ret = (i, t) => { const as = acct(i, t), b = bal(i, t); return (b > 0 ? as.reduce((x, a) => x + num(a.bal) * num(a.ret), 0) / b : 5) / 100; };
+  return {
+    province: S.province, firstYear: FIRST, planTo: ages[0], retireYear: Math.min(...S.people.slice(0, np).map(p => birthYearOf(p) + retAtOf(p))), inflation: num(S.inflation) / 100, income: num(S.income), survivorPct: 1, order: S.order,
+    couple: S.couple, split: S.couple && S.split,
+    people: S.people.slice(0, np).map((p, i) => ({ name: nameOf(i), birthYear: birthYearOf(p), birthMonth: num(p.bm) || 1, planTo: ages[i],
+      cpp65: cpp65Of(p), cppEstimated: p.cppOwn === '' || p.cppOwn == null, yearsCanada: p.years === '' ? 0 : +p.years,
+      rrsp: bal(i, 'rrsp'), rrspRet: ret(i, 'rrsp'), tfsa: bal(i, 'tfsa'), tfsaRet: ret(i, 'tfsa'), sav: bal(i, 'sav'), savRet: ret(i, 'sav'), tfsaRoom: num(p.tfsaRoom),
+      rrifAge: +p.rrifAge, cppStarted: p.cppStarted, cppStartedAmt: num(p.cppStartedAmt), oasStarted: p.oasStarted, oasStartedAmt: num(p.oasStartedAmt),
+      retireAge: retAtOf(p),
+      other: [{ type: 'employment', amount: working(p) ? num(p.earn) : 0, from: 0, to: retAtOf(p) - 1 }, { type: 'other', amount: num(p.oth), from: 0, to: 200 },
+        ...((np > 1 ? +S.db.owner : 0) === i && num(S.db.amt) > 0 ? [{ type: 'pension', amount: num(S.db.amt), from: num(S.db.from), to: 200, indexed: !!S.db.indexed }] : [])].filter(o => o.amount > 0) })),
+    scenarios: SC.map(x => x.sc),
+  };
+}
+
+// ---------- formatting ----------
+let R, IN;
+const today = () => S.dollars === 'today';
+const D = (v, idx) => today() ? v / idx : v;
+const money = v => (v < 0 ? '−$' : '$') + Math.round(Math.abs(v)).toLocaleString('en-CA');
+const kmoney = v => Math.abs(v) >= 1e6 ? '$' + (v / 1e6).toFixed(2) + 'M' : Math.abs(v) >= 1e4 ? '$' + Math.round(v / 1000) + 'k' : money(v);
+const pct = v => (v * 100).toFixed(1) + '%';
+const ageTxt = b => b ? `${b.years} years${b.months ? ' ' + b.months + ' months' : ''}` : 'does not catch up by 100';
+const ageShort = b => b ? `${b.years}${b.months ? ' y ' + b.months + ' m' : ''}` : 'not by 100';
+const startLbl = s => { const f = (y, m) => y + (m ? `+${m}m` : ''); return `CPP ${f(s.cy, s.cm)} · OAS ${f(s.oy, s.om)}`; };
+function scLabel(k) {
+  const sc = SC[k]; if (!sc) return '';
+  const f = (p, i) => `${S.people[i].cppStarted ? 'CPP already' : 'CPP ' + Math.floor(p.cpp / 12)} · ${S.people[i].oasStarted ? 'OAS already' : 'OAS ' + Math.floor(p.oas / 12)}`;
+  return NP() === 1 ? f(sc.sc.people[0], 0) : sc.sc.people.map((p, i) => `${esc(nameOf(i))}: ${f(p, i)}`).join('; ');
+}
+const PT = () => NP() === 1 ? String(planAges()[0]) : 'the end of the plan';
+const T = s => (S.dollars === 'today' ? 'today’s dollars' : 'future dollars');
+
+// ---------- results ----------
+function update() {
+  IN = toInput();
+  $$('[data-e]').forEach(e => e.textContent = ''); $$('[aria-invalid]').forEach(e => e.removeAttribute('aria-invalid'));
+  R = compute(P, IN);
+  const out = $('#out');
+  if (R.errors) {
+    for (const e of R.errors) {
+      const el = $(`[data-e="${e.field}"]`); if (el) el.textContent = e.msg;
+      const m = e.field.match(/^s(\d)\.p(\d)\.(cpp|oas)$/); if (m && +m[1] === 0) $(`[data-b="start.${m[2]}.${m[3]}"]`)?.setAttribute('aria-invalid', 'true');
+    }
+    const qc = R.errors.find(e => e.field === 'province');
+    out.innerHTML = `<div class="blocked">${qc ? `<b>${esc(qc.msg)}</b><p class="note">Quebec residents receive the Quebec Pension Plan, which has different rules (including starting after 70). Switch the province back to Ontario to see results.</p>` : '<b>Fix the highlighted entries to see results:</b><ul>' + [...new Set(R.errors.map(e => e.msg))].map(m => `<li>${esc(m)}</li>`).join('') + '</ul>'}</div>`;
+    return;
+  }
+  if (S.sel >= R.scen.length) S.sel = R.scen.length - 1;
+  out.innerHTML = summaryHTML() + warnHTML() + cardsHTML() + breakevenHTML() +
+    `<div class="panel"><h2>Cumulative after-tax CPP + OAS</h2><div class="legend" id="lg1"></div><div class="chart" id="ch1"></div>
+      <p class="note">Today’s dollars, so the crossover matches the breakeven ages above. Dots mark where a later start catches up. Hover or tap for values.</p>
+      <details class="more"><summary>Show as a table</summary><div class="scroll" id="tb1"></div></details></div>` +
+    selectorHTML() +
+    `<div class="panel"><h2>Income by year: <span id="selName"></span></h2><div class="legend" id="lg2"></div><div class="chart" id="ch2"></div>
+      <p class="note">${S.couple ? `Both of you together; ages are ${possOf(0)}. The clawback threshold (${money(P.oas.clawbackThreshold)} in 2026) applies to each person separately, so it isn’t drawn on a combined bar.` : `Dashed line: the OAS clawback threshold (${money(P.oas.clawbackThreshold)} in 2026, indexed).`} ▲ marks years over it. Clawback on one year’s income is actually collected from OAS the following July to June; it’s shown in the same year here.</p></div>` +
+    gapHTML() + tableHTML() + assumptionsHTML() + disclaimerHTML();
+  $$('#out [data-sel]').forEach(b => b.addEventListener('click', () => { S.sel = +b.dataset.sel; save(); update(); }));
+  const sc = R.scen[S.sel]; $('#selName').textContent = `${LET[S.sel]}${S.couple ? ', both of you' : ''}`;
+  drawCumulative(); drawIncome();
+}
+
+function lead() {
+  // highest after-tax lifetime total (income used + money left), today's dollars
+  const order = [...R.scen].sort((a, b) => b.t.lifetimeReal - a.t.lifetimeReal);
+  return order;
+}
+function summaryHTML() {
+  const o = lead(), top = o[0], last = o[o.length - 1];
+  const diff = top.t.lifetimeReal - last.t.lifetimeReal;
+  const ps = [];
+  const close = diff < 0.01 * top.t.lifetimeReal;
+  ps.push(close ? `Under these assumptions the scenarios end up within about ${money(diff)} of each other after tax by ${NP() === 1 ? 'age ' + PT() : PT()} — too close to call on the numbers alone.`
+    : `Under these assumptions, <b>${LET[top.k]} (${scLabel(top.k)})</b> has the highest after-tax total by ${NP() === 1 ? 'age ' + PT() : PT()}: <b>${money(top.t.lifetimeReal)}</b> in today’s dollars, about <b>${money(diff)}</b> more than ${LET[last.k]}.`);
+  for (const pr of R.pairs) {
+    const a = R.scen[pr.a], b = R.scen[pr.b];
+    if (!pr.after && !pr.gross) continue;
+    const later = pr.after?.leader === 'A' || pr.gross?.leader === 'A' ? b : a, earlier = later === b ? a : b;
+    ps.push(`${LET[later.k]} catches up with ${LET[earlier.k]} at about age <b>${pr.after ? pr.after.years : '—'}</b> after tax${pr.gross ? ` (${pr.gross.years} before tax)` : ''}.`);
+    break;
+  }
+  const risk = [];
+  const gapS = R.scen.filter(s => s.unfundedGap > 500).sort((x, y) => y.unfundedGap - x.unfundedGap)[0];
+  if (gapS) risk.push(`In ${LET[gapS.k]}, income falls about <b>${money(gapS.unfundedGap)}</b> short of what you need during the waiting years — see “Waiting years” below.`);
+  else {
+    const pr = R.pairs.find(p => p.after);
+    if (pr) risk.push(`The main risk in starting later is not living past about ${pr.after.years}; before that, starting earlier comes out ahead.`);
+  }
+  const claw = R.scen.filter(s => s.t.claw > 1);
+  if (!claw.length) risk.push('No OAS clawback at these income levels.');
+  else risk.push(`OAS clawback over your lifetime: ${claw.map(s => `${LET[s.k]} ${money(s.t.clawReal)}`).join(', ')} (today’s dollars). Income tax is shown separately on each card.`);
+  return `<div class="summary">${ps.map(p => `<p>${p}</p>`).join('')}<p>${risk.join(' ')}</p></div>`;
+}
+function warnHTML() { return R.warn.length ? `<ul class="warns">${R.warn.map(w => `<li>${esc(w)}</li>`).join('')}</ul>` : ''; }
+
+function cardsHTML() {
+  const o = lead(); const np = S.couple ? 2 : 1;
+  return `<div class="cards">${R.scen.map(s => {
+    const t = s.t, k = s.k, last = s.shown.rows[s.shown.rows.length - 1];
+    const mo = IN.people.map((p, i) => {
+      const sp = IN.scenarios[k].people[i];
+      const c = p.cppStarted ? p.cppStartedAmt : cppMonthly(P, p.cpp65, sp.cpp), a = p.oasStarted ? p.oasStartedAmt : oasMonthly(P, p.yearsCanada, sp.oas);
+      return { c, a };
+    });
+    const cm = mo.reduce((x, m) => x + m.c, 0), om = mo.reduce((x, m) => x + m.a, 0);
+    const L = today() ? t.lifetimeReal : t.lifetime, PA = today() ? t.pensionAfterReal : t.pensionAfter, PB = today() ? t.pensionReal : t.pension;
+    const cy = t.clawYears.flat().length;
+    return `<div class="card">${o[0] === s && o[0].t.lifetimeReal - o[o.length - 1].t.lifetimeReal > 0.01 * o[0].t.lifetimeReal ? `<span class="tag">Highest after-tax total at ${PT()} under these assumptions</span>` : ''}
+      <div class="nm"><span class="dot" style="background:${COLORS[k]}"></span>${LET[k]}</div><p class="sub">${scLabel(k)}</p>
+      <div class="big">${money(L)}</div><p class="lbl">After-tax total by ${PT()}: income used plus money left</p>
+      <dl><dt>CPP a month at start${np > 1 ? ' (both)' : ''}</dt><dd>$${cm.toLocaleString('en-CA', { maximumFractionDigits: 0 })}</dd>
+      <dt>OAS a month at start${np > 1 ? ' (both)' : ''}</dt><dd>$${om.toLocaleString('en-CA', { maximumFractionDigits: 0 })}</dd>
+      <dt>CPP + OAS to ${PT()}, before tax</dt><dd>${money(PB)}</dd>
+      <dt>CPP + OAS to ${PT()}, after tax</dt><dd>${money(PA)}</dd>
+      ${s.level != null ? `<dt>Taxable income each year, evened out${today() ? '' : ' (today’s $)'}</dt><dd>about ${money(s.level)}</dd>` : ''}
+      <dt>Income tax, lifetime</dt><dd>${money(today() ? t.taxReal : t.tax)}</dd>
+      <dt>OAS clawback, lifetime</dt><dd>${t.claw > 1 ? `${money(today() ? t.clawReal : t.claw)} · ${cy} yr` : 'none'}</dd>
+      <dt>Money left at ${np > 1 ? 'the end, both of you' : PT()}, before tax</dt><dd>${money(today() ? t.savingsLeftReal : t.savingsLeft)}</dd></dl>
+      <p class="note" style="margin-top:8px">Monthly amounts in ${FIRST > P.YEAR ? P.YEAR : FIRST} dollars. Smaller or larger for life, and indexed once in pay.</p></div>`;
+  }).join('')}</div>`;
+}
+function breakevenHTML() {
+  if (!R.pairs.length) return '';
+  return `<div class="panel"><h2>Breakeven ages</h2><div class="scroll" style="max-height:none"><table><thead><tr><th>Comparison</th><th class="num">Before tax</th><th class="num">After tax</th></tr></thead><tbody>${R.pairs.map(pr =>
+    `<tr><td>${LET[pr.b]} vs ${LET[pr.a]}</td><td class="num">${ageShort(pr.gross)}</td><td class="num">${ageShort(pr.after)}</td></tr>`).join('')}</tbody></table></div>
+    <p class="note">The age${S.couple ? ' (of ' + esc(nameOf(0)) + ')' : ''} at which one scenario’s total CPP + OAS catches up with the other’s, in today’s dollars. After tax includes income tax and clawback on those pensions. Checked to age 100.</p></div>`;
+}
+function selectorHTML() {
+  const np = S.couple ? 2 : 1;
+  return `<div class="toolbar noprint" role="group" aria-label="Choose scenario for details"><span style="align-self:center;font-weight:700">Details for:</span>${R.scen.map(s => `<button type="button" class="${s.k === S.sel ? '' : 'ghost'}" data-sel="${s.k}" aria-pressed="${s.k === S.sel}">${LET[s.k]}</button>`).join('')}
+</div>`;
+}
+
+function gapHTML() {
+  const ref = R.ref.map(r => `CPP ${Math.floor(r.cpp / 12)}, OAS ${Math.floor(r.oas / 12)}`).join(' / ');
+  const blocks = R.scen.map(s => {
+    if (!s.gap.length) return `<div><h3><span class="dot" style="background:${COLORS[s.k]}"></span> ${LET[s.k]}</h3><p>No waiting years compared with ${ref}.</p></div>`;
+    const sum = f => s.gap.reduce((x, g) => x + D(f(g), g.idx), 0);
+    const sumF = sum(g => g.forgoneAfter), sumR = sum(g => g.fromRrsp), sumS = sum(g => g.fromSav), sumU = sum(g => g.unfunded);
+    const a0 = s.gap[0].age, a1 = s.gap[s.gap.length - 1].age;
+    return `<div><h3><span class="dot" style="background:${COLORS[s.k]}"></span> ${LET[s.k]}: ages ${a0}–${a1}</h3>
+      <table class="cmp"><tbody><tr><td>CPP + OAS given up while waiting, after tax</td><td>${money(sumF)}</td></tr>
+      <tr><td>Withdrawn from RRSP/RRIF (before tax)</td><td>${money(sumR)}</td></tr>
+      <tr><td>Withdrawn from TFSA and other savings</td><td>${money(sumS)}</td></tr>
+      <tr><td><b>Short of the income you need</b></td><td><b>${money(sumU)}</b></td></tr></tbody></table>
+      ${sumU > 500 ? `<p class="gapflag">Between ${a0} and ${a1} your RRSP, TFSA and savings run short by about ${money(sumU)} of the income you need.</p>` : '<p>The income you need is paid every waiting year.</p>'}
+      <details class="more"><summary>Year by year</summary><table><thead><tr><th>Age</th><th class="num">Given up</th><th class="num">RRSP/RRIF</th><th class="num">TFSA + savings</th><th class="num">Short</th></tr></thead><tbody>${s.gap.map(g =>
+        `<tr><td>${g.age}</td><td class="num">${money(D(g.forgoneAfter, g.idx))}</td><td class="num">${money(D(g.fromRrsp, g.idx))}</td><td class="num">${money(D(g.fromSav, g.idx))}</td><td class="num">${money(D(g.unfunded, g.idx))}</td></tr>`).join('')}</tbody></table></details></div>`;
+  }).join('');
+  return `<div class="panel"><h2>Waiting years: the cost of starting later</h2><p style="margin:0">Compared with starting ${ref}. Amounts in ${T()}.</p><div class="two">${blocks}</div></div>`;
+}
+
+// one row per year for the whole household (both people added together)
+function tableRows() {
+  const s = R.scen[S.sel];
+  return s.shown.rows.map(r => {
+    const ps = r.per.filter(Boolean), add = k => ps.reduce((t, x) => t + (x[k] || 0), 0);
+    const q = { age: S.couple ? r.per.map((x, i) => x ? x.age : '—').join(' / ') : r.ages[0], ageNum: r.ages[0],
+      cpp: r.cpp, oas: r.oas, w: r.w, fromSav: r.fromSav, fromTfsa: r.fromTfsa, emp: add('emp'), pen: add('pen'), oth: add('oth'), inv: add('inv'),
+      net: r.income, fed: add('fed'), ont: add('ont'), ohp: add('ohp'), tax: r.tax, claw: r.claw, after: r.after, bal: r.bal,
+      margs: r.per.map(x => x ? x.marg : null) };
+    return { r, q };
+  });
+}
+const margTxt = q => q.margs.map(m => m === null ? '—' : pct(m)).join(' / ');
+function tableHTML() {
+  const rows = tableRows(), c = '';
+  const names = [0, 1].map(i => esc(nameOf(i))).join(' / ');
+  return `<div class="panel"><h2>Year by year: ${LET[S.sel]}${S.couple ? ', both of you' : ''}</h2>${S.couple ? `<p style="margin:0 0 8px">Amounts are for both of you together. Ages and marginal rates are shown as ${names}.</p>` : ''}
+  <div class="scroll"><table><thead><tr><th>Year</th><th>Age</th><th class="num">Income needed${c}</th><th class="num">CPP</th><th class="num">OAS</th><th class="num">RRSP/RRIF out</th><th class="num">From TFSA + savings</th><th class="num">Other income</th><th class="num">Taxable income</th><th class="num">Tax</th><th class="num">Clawback</th><th class="num">After tax</th><th class="num">Short${c}</th><th class="num">Marginal</th><th class="num">RRSP/RRIF left</th><th class="num">TFSA + savings${c}</th><th class="num">Total savings, before tax${c}</th></tr></thead><tbody>${rows.map(({ r, q }) =>
+    `<tr${q.claw > 1 ? ' class="cl"' : ''}><td>${r.year}</td><td>${q.age}</td><td class="num">${r.working ? '<span style="color:var(--mute)">working</span>' : money(D(r.need, r.idx))}</td><td class="num">${money(D(q.cpp, r.idx))}</td><td class="num">${money(D(q.oas, r.idx))}</td><td class="num">${money(D(q.w, r.idx))}</td><td class="num">${money(D(q.fromSav + q.fromTfsa, r.idx))}</td><td class="num">${money(D(q.emp + q.pen + q.oth + q.inv, r.idx))}</td><td class="num">${money(D(q.net, r.idx))}</td><td class="num">${money(D(q.tax, r.idx))}</td><td class="num">${money(D(q.claw, r.idx))}</td><td class="num">${money(D(q.after, r.idx))}</td><td class="num"${r.unfunded > 1 ? ' style="color:var(--brick);font-weight:700"' : ''}>${money(D(r.unfunded, r.idx))}</td><td class="num">${margTxt(q)}</td><td class="num">${money(D(q.bal, r.idx))}</td><td class="num">${money(D(r.nonreg + r.tfsa, r.idx))}</td><td class="num"><b>${money(D(r.bal + r.nonreg + r.tfsa, r.idx))}</b></td></tr>`).join('')}</tbody></table></div>
+  <p class="note">${T()[0].toUpperCase() + T().slice(1)}. ▲ = over the clawback threshold. Income needed = what you entered, raised by inflation; it’s paid from CPP, OAS and other income first, then ${S.order === 'rrsp' ? 'RRSP/RRIF, then other savings, then TFSA' : `the RRSP/RRIF up to a steady taxable income${R.scen[S.sel].level != null ? ` (about ${money(R.scen[S.sel].level)} a year in today’s dollars)` : ''}, then other savings and TFSA`}. Short = the part that couldn’t be paid because the money ran out. Other income includes growth on other savings, which is taxed each year.${S.couple ? ` After the first of you reaches their plan-to age, CPP includes the survivor’s pension.` : ''} Total savings = RRSP/RRIF + TFSA + other savings at the end of each year, before any tax. The last row is the “Money left” on the card. Any RRSP/RRIF left at the end would still be taxed at death. ${S.couple && S.split ? 'Income after pension splitting.' : ''}</p></div>`;
+}
+function assumptionsHTML() {
+  return `<details class="panel" open><summary style="cursor:pointer;font-weight:800;font-size:19px">Assumptions behind these numbers</summary>
+  <ul style="font-size:14px;max-width:85ch">
+  <li>Tax year ${P.YEAR} figures, as of ${P.AS_OF}; Ontario. Projection starts January ${FIRST}; ages are ages reached that year.</li>
+  <li>Inflation ${num(S.inflation)}% a year: the income you need, CPP, OAS, tax brackets, credits and the clawback threshold rise with it (OAS is really indexed quarterly). Showing ${T()}.</li>
+  <li>Income needed: ${money(num(S.income))} a year before tax in today’s dollars, paid from CPP, OAS and other income first, then ${S.order === 'rrsp' ? 'RRSP/RRIF, then other savings, then TFSA' : 'the RRSP/RRIF up to a steady taxable income chosen so the RRSP/RRIF and the TFSA/savings run out together (or the RRSP lasts to the end), then other savings and TFSA'}. Any extra (for example a large RRIF minimum) is added to other savings.</li>
+  <li>Accounts: ${S.accounts.length ? S.accounts.map(a => `${TYPES[a.type]}${S.couple ? ' (' + esc(nameOf(a.owner)) + ')' : ''} ${money(num(a.bal))} at ${num(a.ret)}%`).join('; ') : 'none entered'}. ${S.planOwn ? 'Plan-to ages are your own' : 'Plan length from FP Canada’s 2026 Projection Assumption Guidelines (25% chance of being reached)'}: ${planAges().join(' and ')}.</li>
+  <li>CPP at 65 is ${S.people.slice(0, S.couple ? 2 : 1).some(p => p.cppOwn === '' || p.cppOwn == null) ? `estimated as the ${P.YEAR} maximum (${money(P.cpp.max65)}) × years worked ÷ ${P.cpp.bestYears} × earnings ÷ ${money(P.cpp.ympe)} (each capped at 1) — a simplification that skips the CPP enhancement phase-in and the child-rearing and disability drop-outs; your Service Canada statement is more accurate` : 'your Service Canada estimate'}.</li>
+  <li>CPP at every start age comes from your CPP at 65 using the legal adjustments (−0.6% a month before 65, +0.7% after). Dropout provisions, post-retirement benefits and contribution history aren’t re-estimated.</li>
+  <li>OAS: +0.6% a month after 65, +10% from 75, scaled by years in Canada ÷ 40. Clawback: 15% of net income over ${money(P.oas.clawbackThreshold)}, per person, shown in the year earned (actually collected the next July to June) and deducted before tax.</li>
+  <li>Tax: federal and Ontario brackets, basic, age and pension amounts, Ontario surtax, Ontario Tax Reduction and Health Premium. All income is taxed as ordinary income — dividends, capital gains and other credits aren’t modelled. Growth on non-registered savings is taxed as income each year.</li>
+  <li>Until the first of you retires, pay covers your spending: nothing is taken from savings, and your savings keep growing. From then on, the income you need is paid by any remaining pay, CPP, OAS and pensions first, then savings. New RRSP or TFSA contributions from pay aren’t included.</li>
+  ${S.couple ? `<li>After the first of you reaches their plan-to age, the survivor needs the same income and keeps the RRSP/RRIF, TFSA and savings tax-free. The CPP survivor’s pension is 60% of the spouse’s CPP from 65 (own CPP + survivor’s pension capped at the maximum retirement pension) and 37.5% before 65 (the small flat-rate part isn’t included). OAS has no survivor benefit.</li>` : ''}
+  <li>Withdrawals are spread through the year, so money keeps growing until it’s spent (modelled as taken at mid-year). Returns are added once a year.</li>
+  <li>RRIF minimums use CRA factors (5.28% at 71, rising to 20% at 95+) on the January 1 balance.</li>
+  <li>“After-tax total” = after-tax income used over the plan + money left at the end (TFSA, savings and RRIF after tax at death). GIS, the OAS Allowance for the Survivor, the CPP death benefit and estate costs other than income tax aren’t modelled.</li>
+  </ul></details>`;
+}
+function disclaimerHTML() {
+  return `<p class="disc">Estimates only, based on the figures and assumptions shown. This calculator is general information, not financial, tax or retirement advice. CPP and OAS rules, amounts and tax law change — confirm your own amounts with Service Canada and the Canada Revenue Agency, and consider advice from a qualified professional before deciding. <span class="note">Figures as of ${P.AS_OF}.</span></p>`;
+}
+
+// ---------- charts ----------
+function frame(el, h) {
+  const W = Math.max(300, el.clientWidth), H = h;
+  const m = { l: 58, r: 14, t: 12, b: 28 };
+  return { W, H, m, iw: W - m.l - m.r, ih: H - m.t - m.b };
+}
+function nice(max) { const p = Math.pow(10, Math.floor(Math.log10(max || 1))); const n = max / p; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * p; }
+function axes(f, x0, x1, ymax, xs, ys, fmtY) {
+  let g = '';
+  const steps = 4, top = nice(ymax / steps) * steps;
+  for (let i = 0; i <= steps; i++) {
+    const v = top / steps * i, y = f.m.t + f.ih - v / top * f.ih;
+    g += `<line x1="${f.m.l}" x2="${f.W - f.m.r}" y1="${y}" y2="${y}" stroke="var(--rule)" stroke-width="1"/><text x="${f.m.l - 8}" y="${y + 4}" text-anchor="end">${fmtY(v)}</text>`;
+  }
+  const span = x1 - x0, every = [1, 2, 5, 10].find(e => f.iw / (span / e) >= 34) || 10;
+  for (let a = Math.ceil(x0 / every) * every; a <= x1; a += every) g += `<text x="${xs(a)}" y="${f.H - 8}" text-anchor="middle">${a}</text>`;
+  return { g, top };
+}
+function tipAt(el, html, x, y) {
+  let t = el.querySelector('.tip'); if (!t) { t = document.createElement('div'); t.className = 'tip'; el.append(t); }
+  t.innerHTML = html; t.style.display = 'block';
+  const w = t.offsetWidth; t.style.left = Math.min(Math.max(0, x + 12), el.clientWidth - w) + 'px'; t.style.top = Math.max(0, y - 10) + 'px';
+}
+function drawCumulative() {
+  const el = $('#ch1'); if (!el) return;
+  const series = R.scen.map(s => { let c = 0; return s.shown.rows.map(r => ({ age: r.ageEnd, a: r.ages[0], v: (c += r.pensionAfter / r.idx) })); });
+  const x0 = series[0][0].age - 1, x1 = series[0].at(-1).age;
+  const f = frame(el, 280), ymax = Math.max(...series.map(s => s.at(-1).v));
+  const xs = a => f.m.l + (a - x0) / (x1 - x0) * f.iw;
+  const ax = axes(f, Math.ceil(x0), Math.floor(x1), ymax, xs, null, kmoney);
+  const ys = v => f.m.t + f.ih - v / ax.top * f.ih;
+  let g = ax.g;
+  series.forEach((s, k) => { g += `<path d="M${xs(x0)},${ys(0)} ${s.map(p => `L${xs(p.age).toFixed(1)},${ys(p.v).toFixed(1)}`).join(' ')}" fill="none" stroke="${COLORS[k]}" stroke-width="2" stroke-linejoin="round"/>`; });
+  // direct labels at the line ends (≤ 3 series)
+  const ends = series.map((s, k) => ({ k, y: ys(s.at(-1).v) })).sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 14) ends[i].y = ends[i - 1].y + 14;
+  ends.forEach(e => { g += `<text class="lab" x="${f.W - f.m.r - 2}" y="${e.y - 6}" text-anchor="end">${LET[e.k]}</text>`; });
+  for (const pr of R.pairs) if (pr.after && pr.after.age <= x1) {
+    const sA = series[pr.a]; const i = sA.findIndex(p => p.age >= pr.after.age); if (i < 0) continue;
+    const p0 = sA[Math.max(0, i - 1)], p1 = sA[i], t = p1.age === p0.age ? 0 : (pr.after.age - p0.age) / (p1.age - p0.age), v = p0.v + t * (p1.v - p0.v);
+    g += `<circle cx="${xs(pr.after.age)}" cy="${ys(v)}" r="5" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/><text class="lab" x="${xs(pr.after.age)}" y="${ys(v) - 10}" text-anchor="middle">${LET[pr.b]}=${LET[pr.a]} at ${pr.after.years}</text>`;
+  }
+  g += `<line id="cx1" x1="0" x2="0" y1="${f.m.t}" y2="${f.m.t + f.ih}" stroke="var(--ink)" stroke-width="1" visibility="hidden"/>`;
+  el.innerHTML = `<svg width="${f.W}" height="${f.H}" role="img" aria-label="Cumulative after-tax CPP and OAS by age for each scenario">${g}<rect x="${f.m.l}" y="${f.m.t}" width="${f.iw}" height="${f.ih}" fill="transparent" id="hit1"/></svg>`;
+  $('#lg1').innerHTML = R.scen.map(s => `<span><i style="background:${COLORS[s.k]}"></i>${LET[s.k]} · ${scLabel(s.k)}</span>`).join('');
+  const hit = el.querySelector('#hit1'), cx = el.querySelector('#cx1');
+  const move = e => {
+    const rc = el.getBoundingClientRect(), x = e.clientX - rc.left;
+    const age = x0 + (x - f.m.l) / f.iw * (x1 - x0);
+    const i = Math.max(0, Math.min(series[0].length - 1, series[0].findIndex(p => p.age >= age)));
+    const px = xs(series[0][i].age); cx.setAttribute('x1', px); cx.setAttribute('x2', px); cx.setAttribute('visibility', 'visible');
+    tipAt(el, `<b>Age ${series[0][i].a}</b>${series.map((s, k) => `<span><span><span class="dot" style="background:${COLORS[k]};width:9px;height:9px"></span> ${LET[k]}</span><span>${money(s[i].v)}</span></span>`).join('')}`, px, e.clientY - rc.top);
+  };
+  hit.addEventListener('pointermove', move); hit.addEventListener('pointerdown', move);
+  hit.addEventListener('pointerleave', () => { cx.setAttribute('visibility', 'hidden'); const t = el.querySelector('.tip'); if (t) t.style.display = 'none'; });
+  $('#tb1').innerHTML = `<table><thead><tr><th>Age</th>${R.scen.map(s => `<th class="num">${LET[s.k]}</th>`).join('')}</tr></thead><tbody>${series[0].map((p, i) => `<tr><td>${p.a}</td>${series.map(s => `<td class="num">${money(s[i].v)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+}
+function drawIncome() {
+  const el = $('#ch2'); if (!el) return;
+  const rows = tableRows();
+  const parts = [['CPP', q => q.cpp, COLORS[0]], ['OAS', q => q.oas, COLORS[1]], ['RRSP/RRIF', q => q.w, COLORS[2]], ['Work, pension, other', q => q.emp + q.pen + q.oth, COLORS[3]], ['TFSA + savings', q => q.fromSav + q.fromTfsa, COLORS[4]]];
+  const data = rows.map(({ r, q }) => ({ a: q.ageNum, idx: r.idx, v: parts.map(([, fn]) => D(fn(q), r.idx)), thr: D(P.oas.clawbackThreshold * r.idx, r.idx), claw: q.claw > 1, clawV: D(q.claw, r.idx) }));
+  const f = frame(el, 280);
+  const one = !S.couple;
+  const ymax = Math.max(...data.map(d => d.v.reduce((a, b) => a + b, 0)), ...(one ? data.map(d => d.thr) : [0])) * 1.05;
+  const n = data.length, bw = f.iw / n, gap = Math.min(2, bw * 0.2);
+  const xs = a => f.m.l + (a - data[0].a + 0.5) * bw;
+  const ax = axes(f, data[0].a, data.at(-1).a, ymax, xs, null, kmoney);
+  const ys = v => f.m.t + f.ih - v / ax.top * f.ih;
+  let g = ax.g;
+  data.forEach((d, i) => {
+    let base = 0; const x = f.m.l + i * bw + gap / 2, w = Math.max(1, bw - gap);
+    const tot = d.v.reduce((a, b) => a + b, 0); let k = 0;
+    d.v.forEach((v, j) => {
+      if (v <= 0) return;
+      const y0 = ys(base), y1 = ys(base + v), h = y0 - y1; const isTop = base + v >= tot - 0.01;
+      const segH = Math.max(0, h - (k ? 1 : 0));
+      g += isTop && segH > 3 ? `<path d="M${x},${y0 - (k ? 1 : 0)} V${y1 + 3} Q${x},${y1} ${x + 3},${y1} H${x + w - 3} Q${x + w},${y1} ${x + w},${y1 + 3} V${y0 - (k ? 1 : 0)} Z" fill="${parts[j][2]}"/>` : `<rect x="${x}" y="${y1}" width="${w}" height="${segH}" fill="${parts[j][2]}"/>`;
+      base += v; k++;
+    });
+    if (d.claw) g += `<text x="${x + w / 2}" y="${ys(tot) - 4}" text-anchor="middle" style="fill:var(--brick);font-weight:800">▲</text>`;
+  });
+  if (one) {
+  g += `<path d="${data.map((d, i) => `${i ? 'L' : 'M'}${f.m.l + i * bw},${ys(d.thr)} L${f.m.l + (i + 1) * bw},${ys(d.thr)}`).join(' ')}" fill="none" stroke="var(--ink)" stroke-width="2" stroke-dasharray="5 4"/>`;
+  g += `<text class="lab" x="${f.m.l + 4}" y="${ys(data[0].thr) - 6}">Clawback threshold</text>`;
+  }
+  el.innerHTML = `<svg width="${f.W}" height="${f.H}" role="img" aria-label="Income by source each year, with the OAS clawback threshold">${g}<rect x="${f.m.l}" y="${f.m.t}" width="${f.iw}" height="${f.ih}" fill="transparent" id="hit2"/></svg>`;
+  $('#lg2').innerHTML = parts.map(p => `<span><i class="sq" style="background:${p[2]}"></i>${p[0]}</span>`).join('') + (one ? '<span><i style="background:var(--ink)"></i>Clawback threshold</span>' : '') + `<span>▲ Over the clawback threshold${one ? '' : ' (either of you)'}</span>`;
+  const hit = el.querySelector('#hit2');
+  const move = e => {
+    const rc = el.getBoundingClientRect(), i = Math.max(0, Math.min(n - 1, Math.floor((e.clientX - rc.left - f.m.l) / bw))), d = data[i];
+    tipAt(el, `<b>Age ${d.a}</b>${parts.map((p, j) => `<span><span>${p[0]}</span><span>${money(d.v[j])}</span></span>`).join('')}<span><span>Total</span><span>${money(d.v.reduce((a, b) => a + b, 0))}</span></span>${d.claw ? `<span><span>Clawback ▲</span><span>${money(d.clawV)}</span></span>` : ''}`, f.m.l + (i + 0.5) * bw, e.clientY - rc.top);
+  };
+  hit.addEventListener('pointermove', move); hit.addEventListener('pointerdown', move);
+  hit.addEventListener('pointerleave', () => { const t = el.querySelector('.tip'); if (t) t.style.display = 'none'; });
+}
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (R && !R.errors) { drawCumulative(); drawIncome(); } }, 150); });
+
+// ---------- CSV export ----------
+$('#csv').addEventListener('click', () => {
+  if (!R || R.errors) return;
+  const lines = [`${BRAND} — CPP and OAS calculator — ${SITE}`, `${LET[S.sel]}: ${scLabel(S.sel).replace(/<[^>]+>/g, '')}`, `Amounts in ${T()}; figures as of ${P.AS_OF}; Ontario`, '',
+    ['Year', 'Age', 'Income needed', 'CPP', 'OAS', 'RRSP/RRIF withdrawal', 'From TFSA + savings', 'Other income', 'Taxable income', 'Federal tax', 'Ontario tax', 'Health premium', 'OAS clawback', 'After tax', 'Short', 'Marginal rate', 'RRSP/RRIF balance', 'TFSA + savings', 'Total savings before tax'].join(',')];
+  for (const { r, q } of tableRows()) lines.push([r.year, q.age, ...[r.need, q.cpp, q.oas, q.w, q.fromSav + q.fromTfsa, q.emp + q.pen + q.oth + q.inv, q.net, q.fed, q.ont, q.ohp, q.claw, q.after, r.unfunded].map(v => Math.round(D(v, r.idx))), '"' + margTxt(q) + '"', ...[q.bal, r.nonreg + r.tfsa, r.bal + r.nonreg + r.tfsa].map(v => Math.round(D(v, r.idx)))].join(','));
+  lines.push('', '"Estimates only, based on the figures and assumptions shown. General information, not financial, tax or retirement advice. Confirm your amounts with Service Canada and the CRA."');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' }));
+  a.download = `retire-timing-scenario-${LET[S.sel]}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+
+drawInputs(); update();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
