@@ -1,6 +1,6 @@
 // Offline support: cache the app, serve it when there's no network.
 // Bump VERSION whenever you change any file so installed copies pick up the update.
-const VERSION = 'rtm-2026-11-24h';
+const VERSION = 'rtm-2026-11-24i';
 const SHELL = ['/', '/index.html', '/privacy.html', '/manifest.webmanifest', '/js/engine.js', '/js/params-2026.js',
   '/icons/icon-192.png', '/icons/icon-512.png', '/icons/maskable-512.png', '/icons/apple-touch-icon.png', '/icons/icon.svg', '/icons/favicon-32.png'];
 
